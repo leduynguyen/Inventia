@@ -1,0 +1,21 @@
+{
+    "naming" : {
+        "TITLE": "OPC Client",
+        "PROG_NAME": "CHƯƠNG TRÌNH LẤY MẪU TỰ ĐỘNG",
+
+        "BTN_CONNECT": "KẾT NỐI",
+        "BTN_DISCONNECT": "NGẮT KẾT NỐI",
+        "LBL_CONNECT_OK": "Đã kết nối",
+        "LBL_CONNECT_NG": "Đã ngắt kết nối",
+        "LBL_STATUS": "Trạng thái",
+        "LBL_LOGIC": "logic"
+    },
+    "settings" : {
+        "SERVER": "OPC.MT_Srv",
+        "JSON_DIR": ".",
+        "STT_01": "Lee_and_men1",
+        "STT_02": "Lee_and_men2",
+        "ENABLE_TAG": "BO2",
+        "SWITCH_TAG": "BO3"
+    }
+}
