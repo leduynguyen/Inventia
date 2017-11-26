@@ -13,7 +13,7 @@ lock = threading.Lock()
 lst_command = collections.OrderedDict()
 
 # REGEX
-JSON_REGEX = r"([\w ]+)_([\d]+)(\.json)"
+JSON_REGEX = r"([^w ]+)_([\d]+)(\.json)"
 
 res = None
 with open('config.json') as json_data_file:
