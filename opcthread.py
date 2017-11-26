@@ -7,9 +7,7 @@ from util import res
 
 
 '''
-    OPCThread Class 
-    BO4 for testing
-    BO2 for execute
+    OPCThread Class
 '''
 
 class OpcThread(Thread):
@@ -24,12 +22,12 @@ class OpcThread(Thread):
                 for key in sorted(util.lst_command.keys()):
                     opc_stt = util.lst_command[key]
                     if opc_stt in res['INVENTIA']['STATIONS']:
-                        opc_tag = '.'.join((opc_stt, "BO4"))
+                        opc_tag = '.'.join((opc_stt, "BO2"))
                         burst_tag(opc_tag, 1, 0, 5)
                     elif opc_stt == res['INVENTIA']['SPECIALS']:
                         opc_tag = '.'.join((opc_stt, "BO3"))
                         set_tag(opc_tag, 0)
-                        opc_tag = '.'.join((opc_stt, "BO4"))
+                        opc_tag = '.'.join((opc_stt, "BO2"))
                         is_err = False
                         for i in range(0, 5):
                             if not burst_tag(opc_tag, 1, 0, 5):
