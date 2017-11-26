@@ -1,8 +1,7 @@
 {
     "naming" : {
-        "TITLE": "OPC Client",
-        "PROG_NAME": "CHƯƠNG TRÌNH LẤY MẪU TỰ ĐỘNG",
-
+        "TITLE": "INVENTIA OPC",
+        "PROG_NAME": "INVENTIA OPC",
         "BTN_CONNECT": "KẾT NỐI",
         "BTN_DISCONNECT": "NGẮT KẾT NỐI",
         "LBL_CONNECT_OK": "Đã kết nối",
@@ -10,12 +9,10 @@
         "LBL_STATUS": "Trạng thái",
         "LBL_LOGIC": "logic"
     },
-    "settings" : {
+    "INVENTIA" : {
         "SERVER": "OPC.MT_Srv",
-        "JSON_DIR": ".",
-        "STT_01": "Lee_and_men1",
-        "STT_02": "Lee_and_men2",
-        "ENABLE_TAG": "BO2",
-        "SWITCH_TAG": "BO3"
+        "JSON_DIR": "./INPUTS",
+        "STATIONS": ["Lee_and_men1--slave", "Lee_and_men3_air--slave", "Lee_and_men1_Nito--slave"],
+        "SPECIALS": "Lee_and_men2--slave"
     }
 }

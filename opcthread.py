@@ -5,6 +5,7 @@ import util
 from util import res
 # import resources as res
 
+
 '''
     OPCThread Class 
 '''
@@ -18,19 +19,15 @@ class OpcThread(Thread):
         while util.is_running:
             util.lock.acquire()
             try:
-                # DEBUGGING
-                # print util.lst_command
                 for key in sorted(util.lst_command.keys()):
-                    # DEBUGGING
-                    # print util.lst_command[key]
                     opc_stt = util.lst_command[key]
-                    if opc_stt == res['settings']['STT_01']:
-                        opc_tag = '.'.join((opc_stt, res['settings']['ENABLE_TAG']))
+                    if opc_stt in res['INVENTIA']['STATIONS']:
+                        opc_tag = '.'.join((opc_stt, "BO2"))
                         burst_tag(opc_tag, 1, 0, 5)
-                    elif opc_stt == res['settings']['STT_02']:
-                        opc_tag = '.'.join((opc_stt, res['settings']['SWITCH_TAG']))
+                    elif opc_stt == res['INVENTIA']['SPECIALS']:
+                        opc_tag = '.'.join((opc_stt, "BO3"))
                         set_tag(opc_tag, 0)
-                        opc_tag = '.'.join((opc_stt, res['settings']['ENABLE_TAG']))
+                        opc_tag = '.'.join((opc_stt, "BO2"))
                         is_err = False
                         for i in range(0, 5):
                             if not burst_tag(opc_tag, 1, 0, 5):
@@ -38,7 +35,7 @@ class OpcThread(Thread):
                                 break
                             time.sleep(45)
                         if not is_err:
-                            opc_tag = '.'.join((opc_stt, res['settings']['SWITCH_TAG']))
+                            opc_tag = '.'.join((opc_stt, "BO3"))
                             burst_tag(opc_tag, 1, 0, 5)
                     else:
                         # DEBUGGING
@@ -49,9 +46,11 @@ class OpcThread(Thread):
             finally:
                 util.lock.release()
             time.sleep(1)
-            # DEBUGGING
-            # print 'is_running : ' + str(util.is_running)
 
+    
+'''
+    burst_tag function
+'''
 
 def burst_tag(opc_tag, value, return_value, burst_time):
     result = write_tag(opc_tag, value)
@@ -75,6 +74,11 @@ def burst_tag(opc_tag, value, return_value, burst_time):
 
     return True
 
+    
+'''
+    set_tag function
+'''
+
 def set_tag(opc_tag, value):
     result = write_tag(opc_tag, value)
     cur_t = time.time()
@@ -91,7 +95,7 @@ def set_tag(opc_tag, value):
 def write_tag(tag_name, value):
     try:
         opc = client()
-        opc.connect(res['settings']['SERVER'])
+        opc.connect(res['INVENTIA']['SERVER'])
     except:
         print ("Can NOT connect")
     result = opc.write((tag_name, value))

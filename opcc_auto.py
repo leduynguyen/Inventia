@@ -24,8 +24,8 @@ class Window(Frame):
                 self.cur_status.config(text=util.cur_status)
                 self.cur_status.update_idletasks()
 
-            for item in os.listdir(res['settings']['JSON_DIR']):
-                item_path = os.path.join(res['settings']['JSON_DIR'], item)
+            for item in os.listdir(res['INVENTIA']['JSON_DIR']):
+                item_path = os.path.join(res['INVENTIA']['JSON_DIR'], item)
                 if os.path.isfile(item_path):
                     # print item
                     matches = re.search(util.JSON_REGEX, item)
@@ -35,7 +35,7 @@ class Window(Frame):
 
                         util.lst_command[idx] = stt_name
 
-                        os.rename(item_path, 'storage\\' + item)
+                        os.rename(item_path, 'STORAGE\\' + item)
         else:
             pass
         self.master.after(100, self.poll)
