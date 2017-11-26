@@ -50,7 +50,7 @@ class Window(Frame):
         self.gen_lbl = Label(self.master, text=res['naming']['PROG_NAME'], font=(None, 12), anchor=W)
         self.gen_lbl.grid(column=0, row=0, columnspan=7, rowspan=2)
 
-        self.connect_btn = Button(self.master, text=res['naming']['BTN_CONNECT'], command=self.connect_server)
+        self.connect_btn = Button(self.master, text=res['naming']['BTN_DISCONNECT'], command=self.connect_server)
         self.connect_btn.grid(column=2, row=2, columnspan=3, rowspan=2)
 
         self.status = Label(self.master, text=res['naming']['LBL_STATUS'], anchor=W, padx=3, relief=RIDGE, borderwidth=1)

@@ -3,7 +3,7 @@ import threading
 import json
 
 # GLOBAL VARIABLE
-is_connected = False
+is_connected = True
 is_running = True
 
 cur_status = ''
